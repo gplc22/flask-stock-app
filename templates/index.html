@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Chart Generator</title>
+</head>
+<body>
+    <h1>Generate Stock Chart</h1>
+
+    <form method="POST">
+        <label>Chart Symbol:</label>
+        <select name="symbol" required>
+            {% for symbol in symbols %}
+                <option value="{{ symbol }}">{{ symbol }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label>Choose Chart Type:</label>
+        <select name="chart_type" required>
+            <option value="line">Line</option>
+            <option value="bar">Bar</option>
+        </select>
+        <br><br>
+
+        <label>Choose Start Date:</label>
+        <input type="date" name="start_date" required>
+        <br><br>
+
+        <label>Choose End Date:</label>
+        <input type="date" name="end_date" required>
+        <br><br>
+
+        <input type="submit" value="Generate Chart">
+    </form>
+
+    {% if chart %}
+        <h2>Generated Chart:</h2>
+        <img src="{{ chart }}" alt="Stock Chart">
+    {% endif %}
+</body>
+</html>
