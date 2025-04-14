@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd 
 
 app = Flask(__name__)
-
+# API steup
 def get_stock_data(symbol):
     api_key = 'HF09Q56KFM690UMA'
     url = f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}'
